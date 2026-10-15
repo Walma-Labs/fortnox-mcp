@@ -1,0 +1,52 @@
+{
+  "name": "@walma-labs/fortnox-mcp",
+  "version": "0.1.0",
+  "description": "Open-source MCP server for Fortnox: invoices, supplier invoices, customers, vouchers and accounts, plus income statement, balance sheet and AR/AP ageing built from SIE. Read-only by default; opt-in draft-only writes.",
+  "license": "MIT",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "bin": {
+    "fortnox-mcp": "dist/cli.js"
+  },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "vitest run",
+    "start": "node dist/cli.js",
+    "start:http": "node dist/http.js",
+    "prepublishOnly": "npm run build && npm test",
+    "prepare": "npm run build"
+  },
+  "keywords": ["mcp", "model-context-protocol", "fortnox", "accounting", "bokföring", "claude", "sie"],
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.26.0",
+    "zod": "^3.24.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.0",
+    "typescript": "^5.6.0",
+    "vitest": "^3.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Walma-Labs/fortnox-mcp.git"
+  },
+  "homepage": "https://walma.ai/guider/mcp/fortnox-mcp",
+  "bugs": {
+    "url": "https://github.com/Walma-Labs/fortnox-mcp/issues"
+  }
+}
